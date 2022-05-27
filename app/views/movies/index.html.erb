@@ -1,0 +1,9 @@
+<h1>All Movies</h1>
+
+<ul class = 'list-group'>
+  <% @movies.each do |movie| %>
+    <li class = 'list-group-item'><%= movie.title %>
+    <%= link_to 'Bookmark and add to list', new_movie_bookmark_path(movie, params["format"]) %>
+    </li>
+  <% end %>
+</ul>

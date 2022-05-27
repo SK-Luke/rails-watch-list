@@ -1,0 +1,23 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1640127249305-793865c2efe1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2luZW1hfHx8fHx8MTY1MzYzMDM1Mg&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);">
+  <div class="container">
+    <h1><strong>Save any kind of movies</strong></h1>
+    <p><%= link_to 'Add new list', new_list_path, class: 'btn btn-success' %></p>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="cards"  >
+    <% @lists.each do |list| %>
+      <%= link_to list do  %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?movies)"> <div class="text-uppercase"><%= list.name %></div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+
+    <%# <li class = 'list-group-item'><%= link_to "#{list.name}", list_path(list) %>

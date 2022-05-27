@@ -1,0 +1,8 @@
+<h1>Add movies to bookmark</h1>
+
+<%= simple_form_for([@movie, @bookmark]) do |f| %>
+  <%= f.input :comment %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <%= f.hidden_field :list_id, value: params["format"] %>
+  <%# <% raise %>
+<% end %>
