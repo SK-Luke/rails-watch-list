@@ -1,0 +1,19 @@
+<h1>Add a new movie to library</h1>
+
+<%= simple_form_for(@movie) do |f| %>
+  <div class="form-group">
+    <%= f.input :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :overview, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :poster_url, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :rating, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit %>
+  </div>
+<% end %>

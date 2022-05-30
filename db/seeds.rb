@@ -9,7 +9,7 @@ List.destroy_all
 
 puts "creating database..."
 
-20.times do
+10.times do
   data = JSON.parse(URI.open("https://tmdb.lewagon.com/movie/#{rand(1..999)}").read)
   movie = Movie.new(
     title: data["original_title"],

@@ -1,9 +1,19 @@
 <h2><%= @list.name %></h2>
 
 <h3>List of movies</h3>
+    <%= link_to "Delete List",
+            list_path(@list),
+            method: :delete,
+            data: { confirm: "Delete this whole list?" } %>
 <ul class = 'list-group'>
   <% @movies.each do |movie| %>
-    <li class = 'list-group-item'><%= movie.title %></li>
+    <li class = 'list-group-item'><%= movie.title %>
+    <% @bookmark = Bookmark.find(movie.bookmark_ids) %>
+    <%= link_to "🗑️",
+            movie_bookmark_path(@bookmark),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+    </li>
   <% end %>
 </ul>
 <%= link_to '<Back', lists_path %>

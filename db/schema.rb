@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2022_05_27_030446) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["list_id"], name: "index_bookmarks_on_list_id"
     t.index ["movie_id"], name: "index_bookmarks_on_movie_id"
-
   end
 
   create_table "lists", force: :cascade do |t|
