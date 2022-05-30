@@ -10,3 +10,16 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-brand {
+  font-size: 32px;
+  text-shadow: 0 0 32px white;
+}
+
+.navbar {
+  object-fit: cover;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}

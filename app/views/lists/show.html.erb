@@ -1,12 +1,27 @@
-<h2><%= @list.name %></h2>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8">
+      <div class="list-banner"  >
+        <% if (@list.photo.key?) %>
+          <div class="card-category" style="background-image: url(<%= cl_image_path @list.photo.key, height: 300, width: 400, crop: :fill%>)"> <div class="text-uppercase"><%= @list.name %></div>
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?movies)"> <div class="text-uppercase"><%= @list.name %></div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div><%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %></div>
-
-<h3>List of movies</h3>
+<div class="row justify-content-md-center">
+  <div class="col-md-auto">
     <%= link_to "Delete List",
             list_path(@list),
             method: :delete,
-            data: { confirm: "Delete this whole list?" } %>
+            data: { confirm: "Delete this whole list?" },
+            class: "btn btn-danger" %>
+  </div>
+</div>
 <ul class = 'list-group'>
   <% @movies.each do |movie| %>
     <li class = 'list-group-item'><%= movie.title %>
@@ -18,5 +33,20 @@
     </li>
   <% end %>
 </ul>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mx-auto mt-3" style="width: 48rem">
+  <% @movies.each do |movie| %>
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://image.tmdb.org/t/p/w500<%= movie.poster_url %>" class="card-img-top img-thumbnail" alt="movie-img">
+        <div class="card-body">
+          <h5 class="card-title"><%= movie.title %></h5>
+          <p class="card-text"><%= movie.overview %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 <%= link_to '<Back', lists_path %>
 <%= link_to 'Add a movie', movies_path(@list) %>

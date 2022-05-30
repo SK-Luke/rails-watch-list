@@ -11,8 +11,12 @@
   <div class="cards"  >
     <% @lists.each do |list| %>
       <%= link_to list do  %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?movies)"> <div class="text-uppercase"><%= list.name %></div>
-      </div>
+        <% if (list.photo.key?) %>
+          <div class="card-category" style="background-image: url(<%= cl_image_path list.photo.key, height: 300, width: 400, crop: :fill%>)"> <div class="text-uppercase"><%= list.name %></div>
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?movies)"> <div class="text-uppercase"><%= list.name %></div>
+        <% end %>
+        </div>
       <% end %>
     <% end %>
   </div>
