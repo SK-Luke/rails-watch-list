@@ -1,5 +1,7 @@
 <h2><%= @list.name %></h2>
 
+<div><%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %></div>
+
 <h3>List of movies</h3>
     <%= link_to "Delete List",
             list_path(@list),
